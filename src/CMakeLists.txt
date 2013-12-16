@@ -31,8 +31,18 @@ set(SRC_LIST main.cpp)
 #qt5_use_modules(BoardSample Widgets)
 #qt5_use_modules(MainWindowSample Widgets)
 
+#to link dynamic boost libraries
+add_definitions(-DBOOST_LOG_DYN_LINK)
+
+find_package(Boost 1.55 COMPONENTS thread system log log_setup REQUIRED )
+include_directories(${Boost_INCLUDE_DIR} )
+
+add_library(Logger Logger.cpp)
+target_link_libraries(Logger ${Boost_LIBRARIES})
+
 add_executable(${PROJECT_NAME} ${SRC_LIST})
-target_link_libraries(${PROJECT_NAME} Dollar BoardSample MainWindowSample)
+
+target_link_libraries(${PROJECT_NAME} Dollar BoardSample MainWindowSample Logger)
 
 add_subdirectory(gui)
 
