@@ -1,7 +1,7 @@
 #include "ModuleToken.hpp"
 
 ModuleToken::ModuleToken(Army army, std::string name, Attributes* attributes, std::vector<Side> activeEdges)
-  : Module(army, name, attributes)
+  : BoardToken(army, name, attributes),  Module(army, name, attributes)
 {
   this -> activeEdges = activeEdges;
 }

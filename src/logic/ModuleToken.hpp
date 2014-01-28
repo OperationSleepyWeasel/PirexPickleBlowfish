@@ -5,7 +5,7 @@
 #include <vector>
 #include "Module.hpp"
 
-class ModuleToken : public Module
+class ModuleToken : virtual public Module
 {
 public:
   ModuleToken(Army army, std::string name, Attributes* attributes, std::vector<Side> activeEdges);

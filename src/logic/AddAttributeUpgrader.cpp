@@ -1,7 +1,7 @@
 #include "AddAttributeUpgrader.hpp"
 
 AddAttributeUpgrader::AddAttributeUpgrader(Module* module, AttributeName attributeId, std::string name, bool affectsEnemies)
-  : Upgrader(module, affectsEnemies), newAttributeId(attributeId), newAttributeName(name) {
+  : BoardToken(module -> getArmy(), name, module -> getAttributes()), Upgrader(module, affectsEnemies), newAttributeId(attributeId), newAttributeName(name) {
 }
 
 void AddAttributeUpgrader::upgrade(BoardToken* token) {

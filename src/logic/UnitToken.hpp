@@ -3,7 +3,7 @@
 
 #include "BoardToken.hpp"
 
-class UnitToken : public BoardToken
+class UnitToken : virtual public BoardToken
 {
 public:
   UnitToken(Army army, std::string name, Attributes* attributes = NULL);

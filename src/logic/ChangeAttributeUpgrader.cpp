@@ -3,7 +3,7 @@
 
 
 ChangeAttributeUpgrader::ChangeAttributeUpgrader(Module* module, AttributeName name, int changeValue, bool affectsEnemies)
-  : Upgrader(module, affectsEnemies), attributeToChange(name), changeValue(changeValue) {
+  : BoardToken( module-> getArmy(), module -> getName(), module -> getAttributes()), Upgrader(module, affectsEnemies), attributeToChange(name), changeValue(changeValue) {
 }
 
 void ChangeAttributeUpgrader::upgrade(BoardToken* token)
